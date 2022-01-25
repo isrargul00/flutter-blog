@@ -10,7 +10,7 @@ class Blog extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: Text("blog "),
+        title: Text("flutter - blog "),
         centerTitle: true,
         backgroundColor: Colors.grey[850],
       ),
