@@ -4,7 +4,14 @@ void main() => runApp(MaterialApp(
       home: Blog(),
     ));
 
-class Blog extends StatelessWidget {
+class Blog extends StatefulWidget {
+  @override
+  State<Blog> createState() => _BlogState();
+}
+
+class _BlogState extends State<Blog> {
+  int level = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,6 +20,15 @@ class Blog extends StatelessWidget {
           title: Text("flutter - blog "),
           centerTitle: true,
           backgroundColor: Colors.grey[850],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              level += 1;
+            });
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.grey[800],
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
@@ -45,18 +61,21 @@ class Blog extends StatelessWidget {
               ),
               SizedBox(height: 20.0),
               Text(
-                "website",
+                "Current Level",
                 style: TextStyle(color: Colors.grey, letterSpacing: 2.0),
               ),
               SizedBox(
                 height: 8.0,
               ),
               Text(
-                "Isrargul.com",
+                "$level",
                 style: TextStyle(
                     color: Colors.amberAccent[200],
                     fontSize: 28.0,
                     letterSpacing: 2.0),
+              ),
+              SizedBox(
+                height: 20.0,
               ),
               Row(
                 children: <Widget>[
